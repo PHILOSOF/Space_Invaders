@@ -1,16 +1,16 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'spawnenemy.h'
+** Meta object code from reading C++ file 'spawnheart.h'
 **
 ** Created by: The Qt Meta Object Compiler version 67 (Qt 5.6.2)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../spawnenemy.h"
+#include "../spawnheart.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'spawnenemy.h' doesn't include <QObject>."
+#error "The header file 'spawnheart.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
 #error "This file was generated using the moc from 5.6.2. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -18,27 +18,27 @@
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-struct qt_meta_stringdata_SpawnEnemy_t {
+struct qt_meta_stringdata_SpawnHeart_t {
     QByteArrayData data[3];
     char stringdata0[19];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_SpawnEnemy_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_SpawnHeart_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_SpawnEnemy_t qt_meta_stringdata_SpawnEnemy = {
+static const qt_meta_stringdata_SpawnHeart_t qt_meta_stringdata_SpawnHeart = {
     {
-QT_MOC_LITERAL(0, 0, 10), // "SpawnEnemy"
-QT_MOC_LITERAL(1, 11, 6), // "spawnE"
+QT_MOC_LITERAL(0, 0, 10), // "SpawnHeart"
+QT_MOC_LITERAL(1, 11, 6), // "spawnH"
 QT_MOC_LITERAL(2, 18, 0) // ""
 
     },
-    "SpawnEnemy\0spawnE\0"
+    "SpawnHeart\0spawnH\0"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_SpawnEnemy[] = {
+static const uint qt_meta_data_SpawnHeart[] = {
 
  // content:
        7,       // revision
@@ -60,41 +60,41 @@ static const uint qt_meta_data_SpawnEnemy[] = {
        0        // eod
 };
 
-void SpawnEnemy::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void SpawnHeart::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        SpawnEnemy *_t = static_cast<SpawnEnemy *>(_o);
+        SpawnHeart *_t = static_cast<SpawnHeart *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->spawnE(); break;
+        case 0: _t->spawnH(); break;
         default: ;
         }
     }
     Q_UNUSED(_a);
 }
 
-const QMetaObject SpawnEnemy::staticMetaObject = {
-    { &QObject::staticMetaObject, qt_meta_stringdata_SpawnEnemy.data,
-      qt_meta_data_SpawnEnemy,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
+const QMetaObject SpawnHeart::staticMetaObject = {
+    { &QObject::staticMetaObject, qt_meta_stringdata_SpawnHeart.data,
+      qt_meta_data_SpawnHeart,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
 };
 
 
-const QMetaObject *SpawnEnemy::metaObject() const
+const QMetaObject *SpawnHeart::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *SpawnEnemy::qt_metacast(const char *_clname)
+void *SpawnHeart::qt_metacast(const char *_clname)
 {
     if (!_clname) return Q_NULLPTR;
-    if (!strcmp(_clname, qt_meta_stringdata_SpawnEnemy.stringdata0))
-        return static_cast<void*>(const_cast< SpawnEnemy*>(this));
+    if (!strcmp(_clname, qt_meta_stringdata_SpawnHeart.stringdata0))
+        return static_cast<void*>(const_cast< SpawnHeart*>(this));
     if (!strcmp(_clname, "QGraphicsRectItem"))
-        return static_cast< QGraphicsRectItem*>(const_cast< SpawnEnemy*>(this));
+        return static_cast< QGraphicsRectItem*>(const_cast< SpawnHeart*>(this));
     return QObject::qt_metacast(_clname);
 }
 
-int SpawnEnemy::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int SpawnHeart::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QObject::qt_metacall(_c, _id, _a);
     if (_id < 0)

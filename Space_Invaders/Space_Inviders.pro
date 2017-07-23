@@ -19,7 +19,9 @@ SOURCES += main.cpp \
     spawnenemy.cpp \
     game.cpp \
     score.cpp \
-    health.cpp
+    health.cpp \
+    heart.cpp \
+    spawnheart.cpp
 
 HEADERS  += \
     Player.h \
@@ -29,7 +31,9 @@ HEADERS  += \
     spawnenemy.h \
     game.h \
     score.h \
-    health.h
+    health.h \
+    heart.h \
+    spawnheart.h
 
 FORMS    += mainwindow.ui
 

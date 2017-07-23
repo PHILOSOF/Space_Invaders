@@ -19,4 +19,8 @@
 #define ENEMY_HEIGHT 50
 #define ENEMY_SPEED 5
 
+#define HEART_WIDTH 25
+#define HEART_HEIGHT 25
+#define HEART_SPEED 5
+
 #endif // GLOBALVARIABLES_H

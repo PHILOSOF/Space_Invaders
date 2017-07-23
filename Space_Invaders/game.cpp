@@ -1,6 +1,7 @@
 #include "game.h"
 #include "globalvariables.h"
 #include "spawnenemy.h"
+#include"spawnheart.h"
 
 #include <QGraphicsScene>
 #include <QGraphicsView>
@@ -30,6 +31,7 @@ Game::Game() : scene( new QGraphicsScene(0,0, SCREEN_WIDTH, SCREEN_HEIGHT)), QGr
    health = new Health();
    health->setPos(health->x() + SCREEN_WIDTH/2, health->y());
    scene->addItem(health);
+
 }
 
 void Game::start()
@@ -47,8 +49,11 @@ void Game::start()
     //scene->addItem(pxmap);
 
     QTimer* timer = new QTimer();
-    SpawnEnemy* spawn = new SpawnEnemy();
-    scene->addItem(spawn);
-    QObject::connect(timer, SIGNAL(timeout()), spawn, SLOT(spawn()));
+    SpawnEnemy* spawnE = new SpawnEnemy();
+    scene->addItem(spawnE);
+    QObject::connect(timer, SIGNAL(timeout()), spawnE, SLOT(spawnE()));
+    SpawnHeart* spawnH = new SpawnHeart();
+    scene->addItem(spawnH);
+    QObject::connect(timer,SIGNAL(timeout()),spawnH,SLOT(spawnH()));
     timer->start(3000);
 }

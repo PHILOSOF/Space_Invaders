@@ -10,7 +10,7 @@ class SpawnEnemy : public QObject, public QGraphicsRectItem
 public:
     SpawnEnemy();
 public slots:
-    void spawn();
+    void spawnE();
 };
 
 #endif // SPAWNENEMY_H
