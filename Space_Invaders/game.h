@@ -4,6 +4,9 @@
 #include "Player.h"
 #include "score.h"
 #include"health.h"
+#include"space.h"
+#include "enemy.h"
+
 
 #include <QGraphicsScene>
 #include <QGraphicsView>
@@ -16,6 +19,11 @@ public:
     Player* player;
     Score* score;
     Health* health;
+
+    Space* space1;
+    Space* space2;
+
+    std::vector<Enemy*> enamies;
 public:
     Game();
     void start();

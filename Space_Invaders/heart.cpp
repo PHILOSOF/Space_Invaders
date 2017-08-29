@@ -9,13 +9,14 @@
 
 extern Game* game;
 
-Heart::Heart(): QObject (),QGraphicsRectItem()
+Heart::Heart(): QObject (),QGraphicsPixmapItem()
 {
     const int randPosX = rand() % (SCREEN_WIDTH - HEART_WIDTH);
     this->setPos(randPosX,0);
-
-    this->setRect(0,0,HEART_WIDTH,HEART_HEIGHT);
-
+    setPixmap(QPixmap(":/images/heart.png"));
+   // this->setRect(0,0,HEART_WIDTH,HEART_HEIGHT);
+    heartMedia = new QMediaPlayer();
+    heartMedia->setMedia(QUrl("qrc:/sounds/heart.mp3"));
     QTimer* timer = new QTimer();
     this->connect(timer,SIGNAL(timeout()),this,SLOT(move()));
     timer->start(10);
@@ -30,6 +31,7 @@ void Heart::move()
     {
         if (typeid(*collItem[i])== typeid(Player))
         {
+            heartMedia->play();
             game->health->increaseHealth();
             scene()->removeItem(this);
 

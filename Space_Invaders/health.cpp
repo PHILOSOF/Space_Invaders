@@ -6,7 +6,7 @@ Health::Health(QGraphicsItem* parent):QGraphicsTextItem (parent)
 {
     health=10;
     setPlainText(QString("Health = ")+QString::number(health));
-    setDefaultTextColor(Qt::black);
+    setDefaultTextColor(Qt::red);
     setFont(QFont("OldEnglish", 12));
 }
 

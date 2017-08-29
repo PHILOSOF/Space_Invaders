@@ -2,15 +2,18 @@
 #define HEART_H
 
 #include<QObject>
-#include<QGraphicsRectItem>
+#include<QGraphicsPixmapItem>
+#include<QMediaPlayer>
 
-class Heart : public QObject,public QGraphicsRectItem
+class Heart : public QObject,public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
     Heart();
 public slots:
     void move();
+private:
+    QMediaPlayer* heartMedia;
 };
 
 #endif // HEART_H

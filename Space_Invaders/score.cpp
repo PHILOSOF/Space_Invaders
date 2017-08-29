@@ -6,7 +6,7 @@ Score::Score(QGraphicsItem* parent) : QGraphicsTextItem(parent)
 {
     score = 0;
     setPlainText(QString("Score = ") + QString::number(score));
-    setDefaultTextColor(Qt::black);
+    setDefaultTextColor(Qt::yellow);
     setFont(QFont("OldEnglish", 12));
 }
 

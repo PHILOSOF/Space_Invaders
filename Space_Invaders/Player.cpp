@@ -7,7 +7,11 @@
 
 Player::Player()
 {
-
+    setPixmap(QPixmap(":/images/player.png"));
+    setPos(PLAYER_START_POSITION_X,
+           PLAYER_START_POSITION_Y - PLAYER_HEIGHT - PLAYER_INDENT_FROM_BUTTOM);
+    bulletSound = new QMediaPlayer();
+    bulletSound-> setMedia(QUrl("qrc:/sounds/BoltGun.wav"));
 }
 
 void Player::keyPressEvent(QKeyEvent *key)
@@ -23,9 +27,20 @@ void Player::keyPressEvent(QKeyEvent *key)
     else if(key->key() == Qt::Key_Space)
     {
 
-        Bullet* bullet = new Bullet(this->x() + PLAYER_WIDTH / 2, this->rect().y());
+        Bullet* bullet = new Bullet(this->pos().x() + PLAYER_WIDTH / 2, this->pos().y());
 
-        //bullet->setPos(this->x() + PLAYER_WIDTH / 2, this->y());
+        bullet->setPos(this->x() + PLAYER_WIDTH / 2, this->y());
         scene()->addItem(bullet);
+
+
+        if(bulletSound->state() == QMediaPlayer::StoppedState)
+        {
+            bulletSound->play();
+        }
+        else if(bulletSound->state() == QMediaPlayer::PlayingState)
+        {
+            bulletSound->setPosition(0);
+        }
+
     }
 }

@@ -89,8 +89,8 @@ void *Heart::qt_metacast(const char *_clname)
     if (!_clname) return Q_NULLPTR;
     if (!strcmp(_clname, qt_meta_stringdata_Heart.stringdata0))
         return static_cast<void*>(const_cast< Heart*>(this));
-    if (!strcmp(_clname, "QGraphicsRectItem"))
-        return static_cast< QGraphicsRectItem*>(const_cast< Heart*>(this));
+    if (!strcmp(_clname, "QGraphicsPixmapItem"))
+        return static_cast< QGraphicsPixmapItem*>(const_cast< Heart*>(this));
     return QObject::qt_metacast(_clname);
 }
 

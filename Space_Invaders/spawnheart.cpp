@@ -11,7 +11,6 @@ SpawnHeart::SpawnHeart()
 
 void SpawnHeart::spawnH()
 {
-
     Heart* heart = new Heart;
     scene()->addItem(heart);
 

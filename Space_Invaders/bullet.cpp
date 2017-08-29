@@ -2,6 +2,7 @@
 #include "globalvariables.h"
 #include "enemy.h"
 #include "game.h"
+#include "bang.h"
 
 #include <QTimer>
 #include <QGraphicsScene>
@@ -9,9 +10,11 @@
 
 extern Game* game;
 
-Bullet::Bullet(int x, int y, QGraphicsItem* parent) : QObject(), QGraphicsRectItem(parent)
+Bullet::Bullet(int x, int y, QGraphicsItem* parent) : QObject(), QGraphicsPixmapItem(parent)
 {
-    this->setRect(x, y, BULLET_WIDTH, BULLET_HEIGHT );
+   // this->setRect(x, y, BULLET_WIDTH, BULLET_HEIGHT );
+    setPixmap(QPixmap(":/images/bullet1.png"));
+    setPos(x, y);
 
     QTimer* timer = new QTimer();
     this->connect(timer, SIGNAL(timeout()), this, SLOT(move()));
@@ -26,20 +29,31 @@ void Bullet::move()
     {
         if(typeid(*collItems[i]) == typeid(Enemy))
         {
-            game->score->increaseScore();
+            //*collItems[i]->decreaseHealth();
 
+            //if(collItems[i]->GetHealth()==0)
+            {
+            Bang* bang = new Bang(collItems[i]->pos().x(),collItems[i]->pos().y());
+            scene()->addItem(bang);
+            QTimer* timer = new QTimer();
+            bang->connect(timer,SIGNAL(timeout()),bang,SLOT(del()));
+            timer->start(100);
+
+            game->score->increaseScore();
             scene()->removeItem(collItems[i]);
             scene()->removeItem(this);
 
             delete collItems[i];
             delete this;
+
             return;
+            }
         }
     }
 
     this->setPos(this->x(), this->y() - BULLET_SPEED);
 
-    if(rect().y() + BULLET_HEIGHT < 0)
+    if(pos().y() + BULLET_HEIGHT < 0)
     {
         scene()->removeItem(this);
         delete this;
