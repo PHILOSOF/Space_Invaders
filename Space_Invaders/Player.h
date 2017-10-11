@@ -1,6 +1,6 @@
 #ifndef PLAYER_H
 #define PLAYER_H
-#include <QMediaPlayer>в
+#include <QMediaPlayer>
 #include <QGraphicsPixmapItem>
 
 class Player : public QGraphicsPixmapItem

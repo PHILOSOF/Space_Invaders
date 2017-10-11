@@ -1,10 +1,14 @@
 #include "spawnenemy.h"
 #include "enemy.h"
 #include "game.h"
+#include"zigzag.h"
+#include"linear.h"
+#include"horizontal.h"
 #include "globalvariables.h"
 
 #include <QGraphicsScene>
 #include <stdlib.h>
+
 
 extern Game* game;
 
@@ -20,13 +24,13 @@ void SpawnEnemy::spawnE()
     switch(randEnemy)
     {
     case 1:
-        enemy = new Enemy(ENEMY_SPEED,2,ENEMY_SKIN1);
+        enemy = new Enemy(ENEMY_SPEED,2,ENEMY_SKIN1,new Horizontal(enemy));
         break;
     case 2:
-        enemy = new Enemy(ENEMY_SPEED,2,ENEMY_SKIN2);
+        enemy = new Enemy(ENEMY_SPEED,2,ENEMY_SKIN2,new Linear(enemy));
         break;
     case 3:
-        enemy = new Enemy(ENEMY_SPEED,2,ENEMY_SKIN3);
+        enemy = new Enemy(ENEMY_SPEED,2,ENEMY_SKIN3,new Zigzag(enemy));
         break;
 
     default:

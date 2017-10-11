@@ -7,9 +7,9 @@
 
 Player::Player()
 {
-    setPixmap(QPixmap(":/images/player.png"));
+    setPixmap(QPixmap(":/images/p1.png"));
     setPos(PLAYER_START_POSITION_X,
-           PLAYER_START_POSITION_Y - PLAYER_HEIGHT - PLAYER_INDENT_FROM_BUTTOM);
+           PLAYER_START_POSITION_Y - PLAYER_HEIGHT );//PLAYER_INDENT_FROM_BUTTOM
     bulletSound = new QMediaPlayer();
     bulletSound-> setMedia(QUrl("qrc:/sounds/BoltGun.wav"));
 }

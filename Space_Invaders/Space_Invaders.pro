@@ -24,7 +24,11 @@ SOURCES += main.cpp \
     spawnenemy.cpp \
     spawnheart.cpp \
     bang.cpp \
-    space.cpp
+    space.cpp \
+    trajectory.cpp \
+    zigzag.cpp \
+    linear.cpp \
+    horizontal.cpp
 
 HEADERS  += \
     bullet.h \
@@ -38,7 +42,11 @@ HEADERS  += \
     spawnenemy.h \
     spawnheart.h \
     bang.h \
-    space.h
+    space.h \
+    trajectory.h \
+    zigzag.h \
+    linear.h \
+    horizontal.h
 
 FORMS    +=
 

@@ -54,7 +54,11 @@ SOURCES       = main.cpp \
 		spawnenemy.cpp \
 		spawnheart.cpp \
 		bang.cpp \
-		space.cpp debug\qrc_res.cpp \
+		space.cpp \
+		trajectory.cpp \
+		zigzag.cpp \
+		linear.cpp \
+		horizontal.cpp debug\qrc_res.cpp \
 		debug\moc_bullet.cpp \
 		debug\moc_enemy.cpp \
 		debug\moc_heart.cpp \
@@ -74,6 +78,10 @@ OBJECTS       = debug\main.obj \
 		debug\spawnheart.obj \
 		debug\bang.obj \
 		debug\space.obj \
+		debug\trajectory.obj \
+		debug\zigzag.obj \
+		debug\linear.obj \
+		debug\horizontal.obj \
 		debug\qrc_res.obj \
 		debug\moc_bullet.obj \
 		debug\moc_enemy.obj \
@@ -83,7 +91,7 @@ OBJECTS       = debug\main.obj \
 		debug\moc_bang.obj \
 		debug\moc_space.obj
 
-DIST          = player1.png bullet.h \
+DIST          =  bullet.h \
 		enemy.h \
 		game.h \
 		globalvariables.h \
@@ -94,7 +102,11 @@ DIST          = player1.png bullet.h \
 		spawnenemy.h \
 		spawnheart.h \
 		bang.h \
-		space.h main.cpp \
+		space.h \
+		trajectory.h \
+		zigzag.h \
+		linear.h \
+		horizontal.h main.cpp \
 		bullet.cpp \
 		enemy.cpp \
 		game.cpp \
@@ -105,7 +117,11 @@ DIST          = player1.png bullet.h \
 		spawnenemy.cpp \
 		spawnheart.cpp \
 		bang.cpp \
-		space.cpp
+		space.cpp \
+		trajectory.cpp \
+		zigzag.cpp \
+		linear.cpp \
+		horizontal.cpp
 QMAKE_TARGET  = Space_Invaders
 DESTDIR        = debug\ #avoid trailing-slash linebreak
 TARGET         = Space_Invaders.exe
@@ -174,7 +190,7 @@ dist:
 	$(ZIP) Space_Invaders.zip $(SOURCES) $(DIST) Space_Invaders.pro C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\features\spec_pre.prf C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\common\angle.conf C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\common\msvc-base.conf C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\common\msvc-desktop.conf C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\qconfig.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_3dcore.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_3dcore_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_3dinput.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_3dinput_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_3dlogic.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_3dlogic_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_3dquick.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_3dquick_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_3dquickinput.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_3dquickinput_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_3dquickrender.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_3dquickrender_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_3drender.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_3drender_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_axbase.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_axbase_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_axcontainer.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_axcontainer_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_axserver.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_axserver_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_bluetooth.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_bluetooth_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_bootstrap_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_clucene_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_concurrent.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_concurrent_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_core.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_core_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_dbus.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_dbus_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_designer.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_designer_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_gui.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_gui_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_help.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_help_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_labscontrols_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_labstemplates_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_location.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_location_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_multimedia.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_multimedia_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_multimediawidgets.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_network.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_network_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_nfc.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_nfc_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_opengl.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_opengl_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_openglextensions.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_openglextensions_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_platformsupport_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_positioning.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_positioning_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_printsupport.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_printsupport_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_qml.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_qml_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_qmldevtools_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_qmltest.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_qmltest_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_quick.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_quick_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_quickwidgets.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_script.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_script_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_scripttools.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_scripttools_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_sensors.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_sensors_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_serialbus.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_serialbus_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_serialport.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_serialport_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_sql.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_sql_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_svg.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_svg_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_testlib.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_testlib_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_uiplugin.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_uitools.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_uitools_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_webchannel.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_webchannel_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_webengine.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_webengine_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_webenginecore.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_webenginecore_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_webenginecoreheaders_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_webenginewidgets.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_webenginewidgets_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_websockets.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_websockets_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_webview.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_webview_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_widgets.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_widgets_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_winextras.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_winextras_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_xml.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_xml_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_xmlpatterns.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_xmlpatterns_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\modules\qt_lib_zlib_private.pri C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\features\qt_functions.prf C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\features\qt_config.prf C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\features\win32\qt_config.prf C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\win32-msvc2013\qmake.conf C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\features\spec_post.prf C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\features\exclusive_builds.prf C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\features\default_pre.prf C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\features\win32\default_pre.prf C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\features\resolve_config.prf C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\features\exclusive_builds_post.prf C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\features\default_post.prf C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\features\build_pass.prf C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\features\win32\rtti.prf C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\features\precompile_header.prf C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\features\warn_on.prf C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\features\qt.prf C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\features\resources.prf C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\features\moc.prf C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\features\win32\opengl.prf C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\features\uic.prf C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\features\file_copies.prf C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\features\win32\windows.prf C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\features\testcase_targets.prf C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\features\exceptions.prf C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\features\yacc.prf C:\Qt\Qt5.6.2\5.6\msvc2013_64\mkspecs\features\lex.prf Space_Invaders.pro res.qrc C:\Qt\Qt5.6.2\5.6\msvc2013_64\lib\qtmaind.prl C:\Qt\Qt5.6.2\5.6\msvc2013_64\lib\Qt5Multimediad.prl C:\Qt\Qt5.6.2\5.6\msvc2013_64\lib\Qt5Widgetsd.prl C:\Qt\Qt5.6.2\5.6\msvc2013_64\lib\Qt5Guid.prl C:\Qt\Qt5.6.2\5.6\msvc2013_64\lib\Qt5Networkd.prl C:\Qt\Qt5.6.2\5.6\msvc2013_64\lib\Qt5Cored.prl  NO_PCH_SOURCES RESOURCES HEADERS SOURCES OBJECTIVE_SOURCES FORMS YACCSOURCES YACCSOURCES LEXSOURCES 
 
 clean: compiler_clean 
-	-$(DEL_FILE) debug\main.obj debug\bullet.obj debug\enemy.obj debug\game.obj debug\health.obj debug\heart.obj debug\Player.obj debug\score.obj debug\spawnenemy.obj debug\spawnheart.obj debug\bang.obj debug\space.obj debug\qrc_res.obj debug\moc_bullet.obj debug\moc_enemy.obj debug\moc_heart.obj debug\moc_spawnenemy.obj debug\moc_spawnheart.obj debug\moc_bang.obj debug\moc_space.obj
+	-$(DEL_FILE) debug\main.obj debug\bullet.obj debug\enemy.obj debug\game.obj debug\health.obj debug\heart.obj debug\Player.obj debug\score.obj debug\spawnenemy.obj debug\spawnheart.obj debug\bang.obj debug\space.obj debug\trajectory.obj debug\zigzag.obj debug\linear.obj debug\horizontal.obj debug\qrc_res.obj debug\moc_bullet.obj debug\moc_enemy.obj debug\moc_heart.obj debug\moc_spawnenemy.obj debug\moc_spawnheart.obj debug\moc_bang.obj debug\moc_space.obj
 	-$(DEL_FILE) debug\Space_Invaders.exp debug\Space_Invaders.vc.pdb debug\Space_Invaders.ilk debug\Space_Invaders.idb
 
 distclean: clean 
@@ -196,22 +212,24 @@ compiler_rcc_make_all: debug\qrc_res.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) debug\qrc_res.cpp
 debug\qrc_res.cpp: res.qrc \
-		enemy1.png \
-		heart.png \
-		enemy5.png \
-		space01.png \
-		player.png \
-		enemy4.png \
 		bang.png \
-		nn2.png \
+		heart.png \
+		enemy.png \
+		enemy1.png \
+		enemy2.png \
 		enemy3.png \
-		space.png \
+		space01.png \
+		enemy4.png \
+		enemy5.png \
+		space02.png \
+		small_bang.png \
 		bullet.png \
 		bullet1.png \
 		nn1.png \
-		enemy2.png \
-		enemy.png \
-		space02.png \
+		p1.png \
+		nn2.png \
+		space.png \
+		player.png \
 		heart.mp3 \
 		cannon_1.wav \
 		BoltGun.wav \
@@ -405,6 +423,8 @@ debug\moc_enemy.cpp: C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QObject \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qimage.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpixelformat.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qtransform.h \
+		trajectory.h \
+		enemy.h \
 		enemy.h
 	C:\Qt\Qt5.6.2\5.6\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/mkspecs/win32-msvc2013 -ID:/Documents/QTProjects/Space_Invaders -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include/QtMultimedia -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include/QtWidgets -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include/QtGui -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include/QtANGLE -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include/QtNetwork -IC:/Qt/Qt5.6.2/5.6/msvc2013_64/include/QtCore enemy.h -o debug\moc_enemy.cpp
 
@@ -1047,6 +1067,8 @@ debug\main.obj: main.cpp mainwindow.h \
 		health.h \
 		space.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QObject \
+		enemy.h \
+		trajectory.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QGraphicsScene \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qgraphicsscene.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpen.h \
@@ -1152,6 +1174,7 @@ debug\bullet.obj: bullet.cpp bullet.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QObject \
 		globalvariables.h \
 		enemy.h \
+		trajectory.h \
 		game.h \
 		Player.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtMultimedia\QMediaPlayer \
@@ -1297,6 +1320,7 @@ debug\enemy.obj: enemy.cpp enemy.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qimage.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpixelformat.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qtransform.h \
+		trajectory.h \
 		globalvariables.h \
 		game.h \
 		Player.h \
@@ -1346,6 +1370,7 @@ debug\enemy.obj: enemy.cpp enemy.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qfiledevice.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qtouchdevice.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDebug \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QTimer \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qtimer.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qbasictimer.h
@@ -1464,6 +1489,8 @@ debug\game.obj: game.cpp game.h \
 		health.h \
 		space.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QObject \
+		enemy.h \
+		trajectory.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QGraphicsScene \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qgraphicsscene.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qbrush.h \
@@ -1707,6 +1734,8 @@ debug\heart.obj: heart.cpp heart.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QGraphicsTextItem \
 		health.h \
 		space.h \
+		enemy.h \
+		trajectory.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QGraphicsScene \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qgraphicsscene.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qbrush.h \
@@ -1731,7 +1760,6 @@ debug\heart.obj: heart.cpp heart.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qfiledevice.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qtouchdevice.h \
-		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDebug \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QTimer \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qtimer.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qbasictimer.h
@@ -2048,12 +2076,59 @@ debug\spawnenemy.obj: spawnenemy.cpp spawnenemy.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qtransform.h \
 		enemy.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QGraphicsPixmapItem \
-		globalvariables.h \
+		trajectory.h \
+		game.h \
+		Player.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtMultimedia\QMediaPlayer \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtMultimedia\qmediaplayer.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtMultimedia\qmediaobject.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtMultimedia\qtmultimediadefs.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtMultimedia\qmultimedia.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtMultimedia\qmediacontent.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtMultimedia\qmediaresource.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtNetwork\qnetworkrequest.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QSharedDataPointer \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QString \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QUrl \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qurl.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qurlquery.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtMultimedia\qmediaenumdebug.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qmetaobject.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtMultimedia\qaudio.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtNetwork\qnetworkconfiguration.h \
+		score.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QGraphicsTextItem \
+		health.h \
+		space.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QGraphicsScene \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qgraphicsscene.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qbrush.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qfont.h \
-		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpen.h
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpen.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QGraphicsView \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qgraphicsview.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpainter.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qtextoption.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qfontinfo.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qfontmetrics.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qscrollarea.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qwidget.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpalette.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qsizepolicy.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qcursor.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qkeysequence.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qevent.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qfile.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qfiledevice.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qvector2d.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qtouchdevice.h \
+		zigzag.h \
+		linear.h \
+		horizontal.h \
+		globalvariables.h
 
 debug\spawnheart.obj: spawnheart.cpp spawnheart.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QObject \
@@ -2370,6 +2445,384 @@ debug\space.obj: space.cpp space.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QTimer \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qtimer.h \
 		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qbasictimer.h
+
+debug\trajectory.obj: trajectory.cpp trajectory.h \
+		enemy.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QObject \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qobject.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qobjectdefs.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qnamespace.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qglobal.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qconfig.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qfeatures.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qsystemdetection.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qprocessordetection.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qcompilerdetection.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qtypeinfo.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qtypetraits.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qisenum.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qsysinfo.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qlogging.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qflags.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qbasicatomic.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_bootstrap.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qgenericatomic.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_gcc.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_msvc.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_armv7.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_armv6.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_armv5.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_ia64.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_x86.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_unix.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qglobalstatic.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qmutex.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qnumeric.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qversiontagging.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qstring.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qchar.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qbytearray.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qrefcount.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qarraydata.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qstringbuilder.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qlist.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qalgorithms.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qiterator.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qhashfunctions.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qpair.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qbytearraylist.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qstringlist.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qregexp.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qcoreevent.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qscopedpointer.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qmetatype.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qvarlengtharray.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qcontainerfwd.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qobject_impl.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QGraphicsPixmapItem \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qgraphicsitem.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qvariant.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qmap.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qdebug.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qhash.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qtextstream.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qiodevice.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qlocale.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qshareddata.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qvector.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qpoint.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qset.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qcontiguouscache.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qrect.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qmargins.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qsize.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpainterpath.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qmatrix.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpolygon.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qregion.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qwindowdefs.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qdatastream.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qline.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpixmap.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpaintdevice.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qcolor.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qrgb.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qrgba64.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qsharedpointer.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qsharedpointer_impl.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qimage.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpixelformat.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qtransform.h \
+		globalvariables.h
+
+debug\zigzag.obj: zigzag.cpp zigzag.h \
+		trajectory.h \
+		enemy.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QObject \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qobject.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qobjectdefs.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qnamespace.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qglobal.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qconfig.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qfeatures.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qsystemdetection.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qprocessordetection.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qcompilerdetection.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qtypeinfo.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qtypetraits.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qisenum.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qsysinfo.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qlogging.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qflags.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qbasicatomic.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_bootstrap.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qgenericatomic.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_gcc.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_msvc.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_armv7.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_armv6.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_armv5.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_ia64.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_x86.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_unix.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qglobalstatic.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qmutex.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qnumeric.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qversiontagging.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qstring.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qchar.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qbytearray.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qrefcount.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qarraydata.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qstringbuilder.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qlist.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qalgorithms.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qiterator.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qhashfunctions.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qpair.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qbytearraylist.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qstringlist.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qregexp.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qcoreevent.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qscopedpointer.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qmetatype.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qvarlengtharray.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qcontainerfwd.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qobject_impl.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QGraphicsPixmapItem \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qgraphicsitem.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qvariant.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qmap.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qdebug.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qhash.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qtextstream.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qiodevice.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qlocale.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qshareddata.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qvector.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qpoint.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qset.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qcontiguouscache.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qrect.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qmargins.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qsize.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpainterpath.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qmatrix.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpolygon.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qregion.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qwindowdefs.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qdatastream.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qline.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpixmap.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpaintdevice.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qcolor.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qrgb.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qrgba64.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qsharedpointer.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qsharedpointer_impl.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qimage.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpixelformat.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qtransform.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QDebug
+
+debug\linear.obj: linear.cpp linear.h \
+		trajectory.h \
+		enemy.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QObject \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qobject.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qobjectdefs.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qnamespace.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qglobal.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qconfig.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qfeatures.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qsystemdetection.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qprocessordetection.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qcompilerdetection.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qtypeinfo.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qtypetraits.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qisenum.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qsysinfo.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qlogging.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qflags.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qbasicatomic.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_bootstrap.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qgenericatomic.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_gcc.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_msvc.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_armv7.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_armv6.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_armv5.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_ia64.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_x86.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_unix.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qglobalstatic.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qmutex.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qnumeric.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qversiontagging.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qstring.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qchar.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qbytearray.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qrefcount.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qarraydata.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qstringbuilder.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qlist.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qalgorithms.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qiterator.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qhashfunctions.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qpair.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qbytearraylist.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qstringlist.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qregexp.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qcoreevent.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qscopedpointer.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qmetatype.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qvarlengtharray.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qcontainerfwd.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qobject_impl.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QGraphicsPixmapItem \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qgraphicsitem.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qvariant.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qmap.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qdebug.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qhash.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qtextstream.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qiodevice.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qlocale.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qshareddata.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qvector.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qpoint.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qset.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qcontiguouscache.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qrect.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qmargins.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qsize.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpainterpath.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qmatrix.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpolygon.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qregion.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qwindowdefs.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qdatastream.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qline.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpixmap.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpaintdevice.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qcolor.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qrgb.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qrgba64.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qsharedpointer.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qsharedpointer_impl.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qimage.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpixelformat.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qtransform.h
+
+debug\horizontal.obj: horizontal.cpp horizontal.h \
+		trajectory.h \
+		enemy.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\QObject \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qobject.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qobjectdefs.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qnamespace.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qglobal.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qconfig.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qfeatures.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qsystemdetection.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qprocessordetection.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qcompilerdetection.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qtypeinfo.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qtypetraits.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qisenum.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qsysinfo.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qlogging.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qflags.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qbasicatomic.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_bootstrap.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qgenericatomic.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_gcc.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_msvc.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_armv7.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_armv6.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_armv5.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_ia64.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_x86.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qatomic_unix.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qglobalstatic.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qmutex.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qnumeric.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qversiontagging.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qstring.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qchar.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qbytearray.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qrefcount.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qarraydata.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qstringbuilder.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qlist.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qalgorithms.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qiterator.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qhashfunctions.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qpair.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qbytearraylist.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qstringlist.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qregexp.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qcoreevent.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qscopedpointer.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qmetatype.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qvarlengtharray.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qcontainerfwd.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qobject_impl.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\QGraphicsPixmapItem \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtWidgets\qgraphicsitem.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qvariant.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qmap.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qdebug.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qhash.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qtextstream.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qiodevice.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qlocale.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qshareddata.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qvector.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qpoint.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qset.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qcontiguouscache.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qrect.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qmargins.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qsize.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpainterpath.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qmatrix.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpolygon.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qregion.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qwindowdefs.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qdatastream.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qline.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpixmap.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpaintdevice.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qcolor.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qrgb.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qrgba64.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qsharedpointer.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtCore\qsharedpointer_impl.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qimage.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qpixelformat.h \
+		C:\Qt\Qt5.6.2\5.6\msvc2013_64\include\QtGui\qtransform.h \
+		globalvariables.h
 
 debug\qrc_res.obj: debug\qrc_res.cpp 
 

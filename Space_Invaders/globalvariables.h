@@ -4,8 +4,11 @@
 #define SCREEN_WIDTH 500
 #define SCREEN_HEIGHT 500
 
-#define PLAYER_WIDTH 50
-#define PLAYER_HEIGHT 50
+#define BANG_PATH ":/images/bang.png"
+#define SMALL_BANG_PATH ":/images/small_bang.png"
+
+#define PLAYER_WIDTH 72
+#define PLAYER_HEIGHT 72
 #define PLAYER_START_POSITION_X SCREEN_WIDTH/2
 #define PLAYER_START_POSITION_Y SCREEN_HEIGHT
 #define PLAYER_INDENT_FROM_BUTTOM 10

@@ -8,7 +8,7 @@ class Bang : public QObject ,public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    Bang(int x, int y);
+    Bang(int x, int y,const QString BangPath);
 //~Bang();
 public slots:
     void del();

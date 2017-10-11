@@ -2,10 +2,10 @@
 
 #include <QGraphicsScene>
 
-Bang::Bang(int x,int y): QObject(),QGraphicsPixmapItem()
+Bang::Bang(int x, int y, const QString BangPath): QObject(),QGraphicsPixmapItem()
 {
     this->setPos(x,y);
-    setPixmap(QPixmap(":/images/bang.png"));
+    setPixmap(QPixmap(BangPath));
 
 }
 

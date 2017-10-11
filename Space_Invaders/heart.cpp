@@ -2,7 +2,7 @@
 #include "globalvariables.h"
 #include"game.h"
 
-#include<QDebug>
+//#include<QDebug>
 #include<stdlib.h>
 #include <QTimer>
 #include<QGraphicsScene>
@@ -26,6 +26,7 @@ Heart::Heart(): QObject (),QGraphicsPixmapItem()
 
 void Heart::move()
 {
+
     QList<QGraphicsItem*> collItem = collidingItems();
     for(size_t i=0;i<collItem.size();++i)
     {
@@ -34,6 +35,7 @@ void Heart::move()
             heartMedia->play();
             game->health->increaseHealth();
             scene()->removeItem(this);
+            delete heartMedia;
 
             delete this;
             return;
@@ -44,6 +46,7 @@ void Heart::move()
    if(y()>SCREEN_HEIGHT)
     {
         scene()->removeItem(this);
+        delete heartMedia;
         delete this;
     }
 
